@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} ANASAYFA - {{ block.super }} {% endblock %}
+
+{% block body %}
+
+	<div class="container-fluid">
+		<div class="row" style="margin-bottom:30px; ">
+			<div class="col-md-4 col-sm-6 " style="background-color: red; height: 100px;">1.STUT</div>
+			<div class="col-md-4 col-sm-6 " style="background-color: blue; height: 100px;" >2.STUT</div>
+			<div class="col-md-4 col-sm-6 " style="background-color: green; height: 100px;">3.STUT</div>
+			<div class="col-md-4 col-sm-6 " style="background-color: yellow; height: 100px;" >4.STUT</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4" style="background-color: red; height: 100px;"></div>
+		<div class="col-md-8" style="background-color: yellow; height: 100px;" >
+			<div class="row">
+				<div class="col-md-2" style="background-color: brown; height: 100px;"></div>
+				<div class="col-md-8" style="background-color: green; height: 100px;"></div>
+				<div class="col-md-1" style="background-color: blue; height: 100px;"></div>
+			</div>
+		</div>
+		  WELCOME  {{ request.user.get_full_name }}
+	</div>
+
+{% endblock %}
