@@ -1,13 +1,13 @@
 ## acmBlog
 
-bilgisayarda python yoksa pythonu yükle
-pip install virtualenv
-virtualenv venv
+bilgisayarda python yoksa pythonu yükle <br>
+pip install virtualenv<br>
+virtualenv venv <br><br>
 
-şimdi venv  yi aktif etmemiz gerek
-linuxta ->> source venv/bin/activate
-windowsta -->> venv\Scripts\activate
+şimdi venv  yi aktif etmemiz gerek <br>
+linuxta ->> source venv/bin/activate<br>
+windowsta -->> venv\Scripts\activate <br><br>
 
-pip install django
+pip install django <br><br>
 
 pip install -r requirements.txt
