@@ -1,4 +1,6 @@
 #pip install -r requirements.txt
 django-recaptch
---upgrade django-crispy-forms
+django-crispy-forms
 django-ckeditor
+django-cleanup
+Pillow
