@@ -17,7 +17,10 @@ class Post(models.Model):
 	publishing = models.DateTimeField(verbose_name='YAYINLANMA TARİHİ',auto_now_add=True)
 	image = models.ImageField(null=True, blank=True)
 	slug = models.SlugField(unique=True, editable=False,max_length=130)
+	tags=models.CharField(null=False,max_length=120,verbose_name='TAGS',default="#tag1 #tag2")
 
+	def get_tags(self):
+		return self.tags.split()
 
 	def __str__(self):
 		return self.title

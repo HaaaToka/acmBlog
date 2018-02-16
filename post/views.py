@@ -15,9 +15,10 @@ def post_index(request):
 			Q(title__icontains=query) |
 			Q(content__icontains=query) |
 			Q(user__first_name__icontains=query) |
+			Q(tags__icontains=query) |
 			Q(user__last_name__icontains=query)).distinct()
 
-	paginator = Paginator(post_list,5)
+	paginator = Paginator(post_list,10)
 
 	page = request.GET.get('page')
 	try:
@@ -36,6 +37,21 @@ def post_index(request):
 def post_detail(request, slug):
 	post=get_object_or_404(Post,slug=slug)
 
+	postlist=Post.objects.all()
+	ppl=[]
+
+	for cp in postlist:
+		flag=0
+		if cp == post:
+			continue
+		for tg in post.get_tags():
+			if tg in cp.get_tags():
+				flag=1
+				break
+		if flag==1:
+			ppl.append(cp)
+	ppl=set(ppl)
+
 	form=CommentForm(request.POST or None)
 	if form.is_valid():
 		comment=form.save(commit=False)
@@ -45,6 +61,7 @@ def post_detail(request, slug):
 	context={
 		'post':post,
 		'form':form,
+		'pl':ppl,
 	}
 	return render(request,'post/detail.html',context)
 
@@ -54,26 +71,6 @@ def post_create(request):
 	if not request.user.is_authenticated:
 		return Http404()
 
-	#form=PostForm()
-
-	#context={
-	#	'form': form
-	#}
-
-
-	#if request.method == "POST":
-	#	print(request.POST)
-
-	#title=request.get('title')
-	#content = request.get('content')
-	#Post.objects.create(title=title,content=content)
-
-	#if request.method == "POST":
-	#	form=PostForm(request.POST)
-	#	if form.is_valid():
-	#		form.save()
-	#else:
-	#	form=PostForm()
 
 	form=PostForm(request.POST or None ,request.FILES or None)
 	if form.is_valid():

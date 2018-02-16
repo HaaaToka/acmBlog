@@ -1,5 +1,5 @@
 #pip install -r requirements.txt
-django-recaptch
+django-recaptcha
 django-crispy-forms
 django-ckeditor
 django-cleanup

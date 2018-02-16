@@ -3,7 +3,7 @@ from .models import Post,Comment
 from captcha.fields import ReCaptchaField #sunucuya geçerken recaptcha sitesinden acmnin linkini ver!!!
 
 class PostForm(forms.ModelForm):
-	captcha = ReCaptchaField()
+	#captcha = ReCaptchaField()
 
 	class Meta:
 		model = Post
@@ -11,10 +11,11 @@ class PostForm(forms.ModelForm):
 			'title',
 			'content',
 			'image',
+			'tags',
 		]
 
 class CommentForm(forms.ModelForm):
-	captcha = ReCaptchaField()
+	#captcha = ReCaptchaField()
 
 	class Meta:
 		model = Comment
