@@ -71,7 +71,6 @@ def post_create(request):
 	if not request.user.is_authenticated:
 		return Http404()
 
-
 	form=PostForm(request.POST or None ,request.FILES or None)
 	if form.is_valid():
 		post=form.save(commit=False)

@@ -31,7 +31,7 @@
 
             <!-- Temel Sayfalar -->
             <ul class="nav navbar-nav navbar-right">
-                {% if request.user.is_authenticated %}
+                {% if request.user.is_authenticated and request.user.is_staff %}
                     <li><a href="{% url 'posst:create' %}">YAZI EKLE</a></li>
                 {% endif %}
                 <li><a href="{% url 'home' %}">Anasayfa</a></li>

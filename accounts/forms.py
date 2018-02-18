@@ -18,10 +18,14 @@ class LoginForm(forms.Form):
 
 
 class RegisterForm(forms.ModelForm):
+    # captcha = ReCaptchaField()
 
     username=forms.CharField(max_length=100, label = "Account Name")
+    first_name=forms.CharField(max_length=100, label="First Name")
+    last_name=forms.CharField(max_length=100,label="Last Name")
     password1=forms.CharField(max_length=100, label="Password", widget=forms.PasswordInput)
     password2=forms.CharField(max_length=100, label="Password Again", widget=forms.PasswordInput)
+    e_mail=forms.CharField(max_length=120,label="EMail")
 
     class Meta:
         model=User
@@ -29,6 +33,9 @@ class RegisterForm(forms.ModelForm):
             'username',
             'password1',
             'password2',
+            'first_name',
+            'last_name',
+            'e_mail'
         ]
 
     def clean_password2(self):
