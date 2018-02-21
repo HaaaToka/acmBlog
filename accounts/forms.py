@@ -43,5 +43,5 @@ class RegisterForm(forms.ModelForm):
         password2=self.cleaned_data.get('password2')
 
         if password1 and password2 and password1 != password2:
-            raise forms.ValidationError("Passwords not same")
+            raise forms.ValidationError("Passwords not  same")
         return password2
